@@ -34,14 +34,14 @@ projects/
 
 ## 🚀 Quick Links
 
-| Project                            | Day   | README    |
-| ---------------------------------- | ----- | --------- |
-| Event Management API               | Day 1 | 📄 README |
-| LMS — Learning Management System   | Day 1 | 📄 README |
-| Loan Application & Approval        | Day 1 | 📄 README |
-| Hiring Application Backend         | Day 2 | 📄 README |
-| Banking Loan Management System     | Day 2 | 📄 README |
-| Enterprise Leave Management (ELMS) | Day 3 | 📄 README |
+| Project | Day | README |
+|----------|-----|--------|
+| Event Management API | Day 1 | [📄 View](Day_1/event_management_api/README.md) |
+| LMS — Learning Management System | Day 1 | [📄 View](Day_1/lms_app/README.md) |
+| Loan Application & Approval | Day 1 | [📄 View](Day_1/loan_app/README.md) |
+| Hiring Application Backend | Day 2 | [📄 View](Day_2/hiring_app/README.md) |
+| Banking Loan Management System | Day 2 | [📄 View](Day_2/banking_lms/README.md) |
+| Enterprise Leave Management (ELMS) | Day 3 | [📄 View](Day_3/leave_management/README.md) |
 
 ---
 
