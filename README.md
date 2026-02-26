@@ -34,14 +34,14 @@ projects/
 
 ## 🚀 Quick Links
 
-| Project | Day | README |
-|----------|-----|--------|
-| Event Management API | Day 1 | [📄 View](Day_1/event_management_api/README.md) |
-| LMS — Learning Management System | Day 1 | [📄 View](Day_1/lms_app/README.md) |
-| Loan Application & Approval | Day 1 | [📄 View](Day_1/loan_app/README.md) |
-| Hiring Application Backend | Day 2 | [📄 View](Day_2/hiring_app/README.md) |
-| Banking Loan Management System | Day 2 | [📄 View](Day_2/banking_lms/README.md) |
-| Enterprise Leave Management (ELMS) | Day 3 | [📄 View](Day_3/leave_management/README.md) |
+| Project | Day | Link |
+|----------|------|------|
+| Event Management API | Day 1 | [📄 View](https://github.com/boobesh2912/Hexware_CaseStudies/tree/main/DAY1/event_management_api) |
+| LMS — Learning Management System | Day 1 | [📄 View](https://github.com/boobesh2912/Hexware_CaseStudies/tree/main/DAY1/lms_app) |
+| Loan Application & Approval | Day 1 | [📄 View](https://github.com/boobesh2912/Hexware_CaseStudies/tree/main/DAY1/loan_app) |
+| Hiring Application Backend | Day 2 | [📄 View](https://github.com/boobesh2912/Hexware_CaseStudies/tree/main/DAY2/hiring_app) |
+| Banking Loan Management System | Day 2 | [📄 View](https://github.com/boobesh2912/Hexware_CaseStudies/tree/main/DAY2/banking_lms) |
+| Enterprise Leave Management (ELMS) | Day 3 | [📄 View](https://github.com/boobesh2912/Hexware_CaseStudies/tree/main/Day3/leave_management) |
 
 ---
 
