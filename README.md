@@ -1,324 +1,300 @@
-# Hexaware Technologies — FastAPI Training Projects
+Hexaware Technologies — FastAPI Training Projects
 
-This repository contains all backend projects built during the Hexaware Technologies internship training program.
-All projects follow **Clean Architecture** principles using **FastAPI + Python**.
+This repository contains all backend projects built during the Hexaware Technologies Internship Training Program.
 
----
+All projects follow Clean Architecture principles using:
 
-## Repository Structure
+FastAPI
 
-```
+Python
+
+SQLAlchemy
+
+PostgreSQL / SQLite
+
+Pydantic
+
+Alembic
+
+📁 Repository Structure
 projects/
 ├── Day_1/
 │   ├── event_management_api/
 │   ├── lms_app/
 │   └── loan_app/
 │
-└── Day_2/
-    ├── hiring_app/
-    └── banking_lms/
-```
+├── Day_2/
+│   ├── hiring_app/
+│   └── banking_lms/
+│
+└── Day_3/
+    └── leave_management/
+🚀 Quick Links
+Project	Day	README
+Event Management API	Day 1	📄 README
+LMS — Learning Management System	Day 1	📄 README
+Loan Application & Approval	Day 1	📄 README
+Hiring Application Backend	Day 2	📄 README
+Banking Loan Management System	Day 2	📄 README
+Enterprise Leave Management (ELMS)	Day 3	📄 README
+📅 Day 1 Projects
+1️⃣ Event Management System API
 
----
-
-## Quick Links
-
-| Project | Day | README |
-|---------|-----|--------|
-| Event Management API | Day 1 | [📄 README](Day_1/event_management_api/README.md) |
-| LMS — Learning Management System | Day 1 | [📄 README](Day_1/lms_app/README.md) |
-| Loan Application & Approval | Day 1 | [📄 README](Day_1/loan_app/README.md) |
-| Hiring Application Backend | Day 2 | [📄 README](Day_2/hiring_app/README.md) |
-| Banking Loan Management System | Day 2 | [📄 README](Day_2/banking_lms/README.md) |
-
----
-
-## Day 1 Projects
-
-### 1. Event Management System API
-**Folder:** `Day_1/event_management_api/` — [📄 View README](Day_1/event_management_api/README.md)
+Folder: Day_1/event_management_api/
 
 A REST API for managing events and participant registrations.
 
-**Tech Stack:** FastAPI, Pydantic, In-Memory Storage (no DB)
+Tech Stack
 
-**Key Features:**
-- Create and list events with location filtering
-- Register participants with capacity and duplicate checks
-- Full business rule validation in service layer
+FastAPI
 
-**API Endpoints:**
+Pydantic
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /events | Create event |
-| GET | /events | List all events |
-| GET | /events?location=Chennai | Filter by location |
-| GET | /events/{id} | Get event by ID |
-| POST | /participants | Register participant |
-| GET | /participants/{id} | Get participant by ID |
+In-Memory Storage (No Database)
 
-**Business Rules:**
-- Duplicate event names not allowed
-- Participant email must be unique
-- Event must exist before registering participant
-- Event capacity must not be exceeded
+Key Features
 
-**Run:**
-```bash
+Create and list events with location filtering
+
+Register participants with:
+
+Capacity checks
+
+Duplicate prevention
+
+Full business rule validation in Service Layer
+
+API Endpoints
+Method	Endpoint	Description
+POST	/events	Create event
+GET	/events	List all events
+GET	/events?location=Chennai	Filter by location
+GET	/events/{id}	Get event by ID
+POST	/participants	Register participant
+GET	/participants/{id}	Get participant by ID
+Run
 cd Day_1/event_management_api
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
-```
+2️⃣ LMS — Learning Management System
 
----
+Folder: Day_1/lms_app/
 
-### 2. LMS — Learning Management System
-**Folder:** `Day_1/lms_app/` — [📄 View README](Day_1/lms_app/README.md)
+An EdTech backend for managing Courses, Students, and Enrollments.
 
-An EdTech platform for managing Courses, Students, and Enrollments.
+Tech Stack
 
-**Tech Stack:** FastAPI, SQLAlchemy, SQLite, Pydantic
+FastAPI
 
-**Key Features:**
-- Student registration and lookup
-- Course creation and listing
-- Student-to-course enrollment with duplicate prevention
-- Nested routes for enrollments by student and by course
+SQLAlchemy
 
-**Database Schema:**
-```
+SQLite
+
+Pydantic
+
+Database Schema
 Student 1 ---- * Enrollment * ---- 1 Course
-```
-
-**API Endpoints:**
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /students | Register student |
-| GET | /students/{id} | Get student |
-| POST | /courses | Create course |
-| GET | /courses | List courses |
-| GET | /courses/{id} | Get course |
-| POST | /enrollments | Enroll student |
-| GET | /enrollments | List all enrollments |
-| GET | /students/{id}/enrollments | Enrollments by student |
-| GET | /courses/{id}/enrollments | Enrollments by course |
-
-**Business Rules:**
-- Student and course must exist before enrollment
-- Duplicate enrollment prevented
-
-**Run:**
-```bash
+Run
 cd Day_1/lms_app
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
-```
+3️⃣ Loan Application & Approval System
 
----
+Folder: Day_1/loan_app/
 
-### 3. Loan Application & Approval System
-**Folder:** `Day_1/loan_app/` — [📄 View README](Day_1/loan_app/README.md)
+A loan application system with eligibility validation logic.
 
-A simple loan application and approval API with eligibility validation.
+Tech Stack
 
-**Tech Stack:** FastAPI, Pydantic, In-Memory Storage (no DB)
+FastAPI
 
-**Key Features:**
-- Submit loan applications with eligibility check
-- Approve or reject pending applications
-- Frontend HTML interface included
+Pydantic
 
-**API Endpoints:**
+In-Memory Storage
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /loans | Submit application |
-| GET | /loans | List all applications |
-| GET | /loans/{id} | Get by ID |
-| PUT | /loans/{id}/approve | Approve loan |
-| PUT | /loans/{id}/reject | Reject loan |
-
-**Business Rules:**
-- Loan amount must be ≤ income × 10
-- Only PENDING loans can be approved or rejected
-
-**Run:**
-```bash
+Run
 cd Day_1/loan_app
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
-```
-> Open `frontend.html` in browser after starting the server.
+📅 Day 2 Projects
+4️⃣ Hiring Application Backend
 
----
-
-## Day 2 Projects
-
-### 4. Hiring Application Backend
-**Folder:** `Day_2/hiring_app/` — [📄 View README](Day_2/hiring_app/README.md)
+Folder: Day_2/hiring_app/
 
 Enterprise-grade backend for managing job postings, users, and job applications.
 
-**Tech Stack:** FastAPI, PostgreSQL, SQLAlchemy ORM, Alembic, Pydantic
+Tech Stack
 
-**Key Features:**
-- Full user management with role-based design (admin/recruiter/candidate)
-- Job CRUD with pagination
-- Job application with duplicate prevention
-- Custom exception handling with central handlers
-- CORS + Logging middleware
-- Alembic migrations
-- Password hashing
+FastAPI
 
-**Database Schema:**
-```
+PostgreSQL
+
+SQLAlchemy ORM
+
+Alembic
+
+Pydantic
+
+Database Schema
 User 1 ---- * Application * ---- 1 Job
-```
-
-**API Endpoints:**
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /users/ | Create user |
-| GET | /users/ | List users (pagination) |
-| GET | /users/{id} | Get user |
-| PUT | /users/{id} | Update user |
-| DELETE | /users/{id} | Delete user |
-| POST | /jobs/ | Create job |
-| GET | /jobs/?skip=0&limit=10 | List jobs (pagination) |
-| GET | /jobs/{id} | Get job |
-| PUT | /jobs/{id} | Update job |
-| DELETE | /jobs/{id} | Delete job |
-| POST | /applications | Apply for job |
-| GET | /applications/{id} | View application |
-| GET | /users/{id}/applications | Applications by user |
-
-**Run:**
-```bash
+Run
 cd Day_2/hiring_app
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
-# Create app/.env with DB credentials
+
+# Create .env file inside app/ with DB credentials
 psql -U postgres -c "CREATE DATABASE hiringdb;"
+
 alembic revision --autogenerate -m "initial schema"
 alembic upgrade head
+
 uvicorn app.main:app --reload
-```
+5️⃣ Banking Loan Management System
 
----
+Folder: Day_2/banking_lms/
 
-### 5. Banking Loan Management System (LMS)
-**Folder:** `Day_2/banking_lms/` — [📄 View README](Day_2/banking_lms/README.md)
+Enterprise banking backend managing loan products, applications, and repayments with strict transactional integrity.
 
-Enterprise banking backend for managing loan products, applications, and repayments with strict transactional integrity.
+Tech Stack
 
-**Tech Stack:** FastAPI, PostgreSQL, SQLAlchemy ORM, Alembic, Pydantic
+FastAPI
 
-**Key Features:**
-- User management with roles (admin/loan_officer/customer)
-- Loan product management
-- Full loan lifecycle: pending → approved → disbursed → closed
-- Repayment tracking with auto loan closure
-- Strict business rule enforcement in service layer
-- Custom exception handling
-- CORS + Logging middleware
-- Alembic migrations
-- Pytest test suite (31 tests)
+PostgreSQL
 
-**Database Schema:**
-```
-Customer (User)  1 ---- * LoanApplication
-LoanOfficer      1 ---- * LoanApplication
-LoanProduct      1 ---- * LoanApplication
-LoanApplication  1 ---- * Repayment
-```
+SQLAlchemy ORM
 
-**API Endpoints:**
+Alembic
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /users/ | Create user |
-| GET | /users/ | List users |
-| GET | /users/{id} | Get user |
-| PUT | /users/{id} | Update user |
-| DELETE | /users/{id} | Delete user |
-| POST | /loan-products/ | Create product |
-| GET | /loan-products/ | List products (pagination) |
-| GET | /loan-products/{id} | Get product |
-| PUT | /loan-products/{id} | Update product |
-| DELETE | /loan-products/{id} | Delete product |
-| POST | /loan-applications/ | Apply for loan |
-| GET | /loan-applications/ | List applications (pagination) |
-| GET | /loan-applications/{id} | Get application |
-| PUT | /loan-applications/{id}/status | Approve / Reject / Disburse |
-| POST | /repayments | Add repayment |
-| GET | /loan-applications/{id}/repayments | Repayment history |
+Pydantic
 
-**Business Rules:**
-- Loan amount cannot exceed product `max_amount`
-- Only `loan_officer` role can approve or reject
-- Cannot disburse unless status is `approved`
-- Loan auto-closes after total repayments ≥ `approved_amount`
-- Repayments only allowed on `disbursed` loans
-- All financial operations use commit/rollback transactions
+Pytest
 
-**Run:**
-```bash
+Key Features
+
+User roles:
+
+Admin
+
+Loan Officer
+
+Customer
+
+Full loan lifecycle:
+
+pending → approved → disbursed → closed
+
+Repayment tracking
+
+Automatic loan closure
+
+31 Pytest test cases
+
+Run
 cd Day_2/banking_lms
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
-# Create app/.env with DB credentials
+
+# Create .env file inside app/ with DB credentials
 psql -U postgres -c "CREATE DATABASE banking_lms;"
+
 alembic revision --autogenerate -m "initial schema"
 alembic upgrade head
+
 uvicorn app.main:app --reload
-```
+📅 Day 3 Project
+6️⃣ Enterprise Leave Management System (ELMS)
 
-**Run Tests:**
-```bash
-pytest -v
-```
+Folder: Day_3/leave_management/
 
----
+Enterprise-grade backend for managing departments and leave workflows with strict Role-Based Access Control (RBAC).
 
-## Architecture Pattern (Day 2 Projects)
+Tech Stack
 
-All Day 2 projects follow strict Clean Architecture:
+FastAPI
 
-```
+SQLite
+
+SQLAlchemy 2.0
+
+Pydantic V2
+
+Alembic
+
+Pytest
+
+Key Features
+
+Advanced RBAC:
+
+Admin → Full CRUD
+
+Manager → Department approvals
+
+Employee → Apply/View own leaves
+
+Overlap detection for leave dates
+
+Department isolation
+
+JWT authentication
+
+Bcrypt password hashing
+
+Strict Pydantic V2 validation
+
+API Endpoints
+Method	Endpoint	Access	Description
+POST	/auth/register	Public	Register user
+POST	/auth/login	Public	Obtain JWT
+POST	/admin/departments	Admin	Create department
+GET	/admin/users	Admin	List workforce
+POST	/employee/apply-leave	Employee	Submit leave
+PUT	/manager/leaves/{id}	Manager	Approve/Reject leave
+Run
+cd Day_3/leave_management
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+
+alembic upgrade head
+uvicorn app.main:app --reload
+Run Tests
+python -m pytest -v
+🏗 Architecture Pattern (Day 2 & 3)
+
+All advanced projects follow strict Clean Architecture:
+
 Client
   ↓
-Controller  →  HTTP only, Pydantic validation
+Router      → HTTP endpoints & Role-based dependencies
   ↓
-Service     →  Business logic, custom exceptions
+Controller  → Thin mapping layer
   ↓
-Repository  →  Raw DB queries, SQLAlchemy
+Service     → Business rules & validations
   ↓
-PostgreSQL
-```
+Repository  → Database access (SQLAlchemy)
+  ↓
+Database    → PostgreSQL / SQLite
+🏗 Architecture Pattern (Day 1)
 
-## Architecture Pattern (Day 1 Projects)
+Same layered structure but simplified storage:
 
-Day 1 projects use the same layered pattern but with simpler storage:
-- `event_management_api` and `loan_app` use **in-memory storage** (no DB)
-- `lms_app` uses **SQLite** via SQLAlchemy
+event_management_api → In-memory storage
 
----
+loan_app → In-memory storage
 
-## Common Setup for All Projects
+lms_app → SQLite
 
-```bash
-# 1. Navigate into the project folder
+⚙ Common Setup (All Projects)
+# 1. Navigate to project
 cd Day_X/project_name
 
 # 2. Create virtual environment
@@ -333,6 +309,10 @@ pip install -r requirements.txt
 
 # 5. Start server
 uvicorn app.main:app --reload
-```
+📘 API Documentation
 
-Swagger UI always available at: **http://localhost:8000/docs**
+Interactive Swagger UI available at:
+
+http://localhost:8000/docs
+
+For every running project.
